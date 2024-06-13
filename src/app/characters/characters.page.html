@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Personagens</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/favorites">
+        <ion-icon slot="icon-only" name="star-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed="true">
+    <ion-row>
+      <ng-container *ngFor="let character of characters; let i = index">
+        <ion-col size="6" size-md="6">
+          <ion-card class="character-card">
+            <!-- Ícone de estrela no canto superior direito -->
+            <ion-icon name="star-outline" size="large" class="favorite-icon" 
+                      *ngIf="!isFavorite(character)" (click)="toggleFavorite(character)"></ion-icon>
+            <ion-icon name="star" size="large" class="favorite-icon" color="warning"
+                      *ngIf="isFavorite(character)" (click)="toggleFavorite(character)"></ion-icon>
+            
+            <ion-img [src]="character.image" alt="Character Image"></ion-img>
+            <ion-card-header (click)="showCharacterDetails(character)">
+              <ion-card-title>{{ character.name }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <!-- Conteúdo adicional do card aqui, se necessário -->
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <!-- Fecha a linha após cada segundo card -->
+        <div *ngIf="(i + 1) % 2 === 0 || i === characters.length - 1" style="height: 0;"></div>
+      </ng-container>
+    </ion-row>
+  </ion-grid>
+
+  <ion-infinite-scroll (ionInfinite)="loadMoreCharacters($event)">
+    <ion-infinite-scroll-content loadingText="Carregando mais personagens...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

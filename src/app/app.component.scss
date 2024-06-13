@@ -1,0 +1,8 @@
+/* app.component.scss */
+
+ion-split-pane {
+    z-index: 1000; /* Ajuste conforme necessário para garantir que o split-pane esteja na frente */
+    width: 100%; /* Ocupa toda a largura da tela */
+    height: 100%; /* Ocupa toda a altura da tela */
+  }
+  

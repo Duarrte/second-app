@@ -1,0 +1,29 @@
+<!-- favorites.page.html -->
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/characters"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Favoritos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let favorite of favorites">
+      <ion-card>
+        <ion-img [src]="favorite.image" alt="Character Image"></ion-img>
+        <ion-card-header>
+          <ion-card-title>{{ favorite.name }}</ion-card-title>
+        </ion-card-header>
+        <!-- Adicione outros detalhes do card que desejar exibir -->
+        <ion-item>
+          <ion-button (click)="removeFromFavorites(favorite)" color="danger">Remover dos Favoritos</ion-button>
+        </ion-item>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>

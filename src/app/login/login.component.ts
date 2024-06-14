@@ -40,12 +40,6 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  // async logout() {
-  //   await this.afAuth.signOut();
-  //   this.isAuthenticated = false;
-  //   this.showToast('DESCONECTADOS COM SUCESSO');
-  // }
-
   async showToast(message: string) {
     const toast = await this.toastController.create({
       message,

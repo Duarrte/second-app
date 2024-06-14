@@ -16,11 +16,9 @@ export class AuthGuard implements CanActivate {
 
     return this.afAuth.authState.pipe(map(user => {
       if (user) {
-        console.log('usuario encontrado')
         return true;
       } else {
         this.router.navigate(['/login']);
-        console.log('SEM USUARIO ENCONTRADO')
         return false;
       }
     }));

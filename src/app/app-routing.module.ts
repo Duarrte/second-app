@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterLink, RouterModule, Routes } from '@angular/router';
+import { LoginModule } from './login/login.module';
+import { CadastroModule } from './cadastro/cadastro.module';
+import { MenuModule } from './menu/menu.module';
 
 const routes: Routes = [
   {
@@ -10,6 +13,16 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    redirectTo: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginModule)    
+  },
+  {
+    path: 'cadastro',
+    redirectTo: 'cadastro',
+    loadChildren: () => import('./cadastro/cadastro.module').then( m => m.CadastroModule)    
   },
   {
     path: 'characters',
@@ -27,7 +40,11 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
+    RouterLink,    
+    LoginModule, 
+    CadastroModule,
+    MenuModule
   ],
   exports: [RouterModule]
 })

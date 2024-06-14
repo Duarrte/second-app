@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { LoadingController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -13,11 +14,30 @@ export class LoginComponent implements OnInit {
   autenticado: boolean = false
 
   constructor(private afAuth: AngularFireAuth,
-    private toastController: ToastController,) { }
+    private toastController: ToastController,
+    private router: Router,
+    private loadingController: LoadingController,
+  ) { }
 
   ngOnInit() { }
 
   async login() {
+    const loading = await this.loadingController.create({
+      message: 'Carregando...',
+    });
+
+    await loading.present();
+    try {
+      const user = await this.afAuth.signInWithEmailAndPassword(this.email, this.senha);
+      await loading.dismiss();
+      this.autenticado = true;
+      this.router.navigate(['/characters']);
+      this.showToast('Login realizado');
+
+    } catch (error) {
+      await loading.dismiss();
+      this.showToast('Falha ao logar');
+    }
   }
 
   // async logout() {

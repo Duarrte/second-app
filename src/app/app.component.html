@@ -6,14 +6,20 @@
   </ion-header>
   <ion-content class="ion-padding">
     <ion-list>
-      <ion-item>
-        <ion-label routerLink="/cadastro">Cadastro</ion-label>
+      <ion-item *ngIf="!autenticado">
+        <ion-label routerLink="/cadastro" (click)="menu.close()">Cadastro</ion-label>
       </ion-item>
-      <ion-item>
-        <ion-label routerLink="/login">Login</ion-label>
+      <ion-item *ngIf="!autenticado">
+        <ion-label routerLink="/login" (click)="menu.close()">Login</ion-label>
       </ion-item>
-      <ion-item>
-        <ion-label routerLink="/characters">Personagens</ion-label>
+      <ion-item *ngIf="autenticado">
+        <ion-label routerLink="/characters" (click)="menu.close()">Personagens</ion-label>
+      </ion-item>
+      <ion-item *ngIf="autenticado">
+        <ion-label routerLink="/favorites" (click)="menu.close()">Favoritos</ion-label>
+      </ion-item>
+      <ion-item *ngIf="autenticado">
+        <ion-label routerLink="/login" (click)="logout()">Deslogar</ion-label>
       </ion-item>
     </ion-list>
   </ion-content>

@@ -14,15 +14,12 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { MenuComponent } from './menu/menu.component';
-import { MenuModule } from './menu/menu.module';
 
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    IonicModule,
-    MenuModule,    
+    IonicModule, 
     BrowserModule,
     RouterLink,
     IonicModule.forRoot(),

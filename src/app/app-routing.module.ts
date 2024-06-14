@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterLink, RouterModule, Routes } from '@angular/router';
 import { LoginModule } from './login/login.module';
 import { CadastroModule } from './cadastro/cadastro.module';
-import { MenuModule } from './menu/menu.module';
+import { AuthGuard } from './services/user/auth.guard';
 
 const routes: Routes = [
   {
@@ -26,15 +26,18 @@ const routes: Routes = [
   },
   {
     path: 'characters',
-    loadChildren: () => import('./characters/characters.module').then( m => m.CharactersPageModule)
+    loadChildren: () => import('./characters/characters.module').then( m => m.CharactersPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'character-details',
-    loadChildren: () => import('./character-details/character-details.module').then( m => m.CharacterDetailsPageModule)
+    loadChildren: () => import('./character-details/character-details.module').then( m => m.CharacterDetailsPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'favorites',
-    loadChildren: () => import('./favorites/favorites.module').then(m => m.FavoritesPageModule)
+    loadChildren: () => import('./favorites/favorites.module').then(m => m.FavoritesPageModule),
+    canActivate: [AuthGuard]
   },
 ];
 
@@ -43,8 +46,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
     RouterLink,    
     LoginModule, 
-    CadastroModule,
-    MenuModule
+    CadastroModule
   ],
   exports: [RouterModule]
 })

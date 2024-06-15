@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar color="success"> <!-- Alterei "primary" para "success" para usar a cor verde -->
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/characters"></ion-back-button>
     </ion-buttons>
@@ -12,7 +12,7 @@
     <ion-card class="character-card">
       <ion-grid>
         <ion-row class="ion-align-items-center">
-          <ion-col size="12" size-md="4">
+          <ion-col size="12" size-md="4" class="ion-text-center">
             <ion-card-content>
               <ion-img class="character-image" [src]="character.image" alt="Character Image"></ion-img>
             </ion-card-content>
@@ -21,22 +21,31 @@
             <ion-card-content class="character-details">
               <ion-list lines="none">
                 <ion-item>
-                  <ion-label>Status</ion-label>
+                  <ion-label>
+                    <ion-icon name="checkmark-circle" color="success"></ion-icon> Status
+                  </ion-label>
                   <ion-text>{{ character.status }}</ion-text>
                 </ion-item>
                 <ion-item>
-                  <ion-label>Espécie</ion-label>
+                  <ion-label>
+                    <ion-icon name="paw" color="warning"></ion-icon> Espécie
+                  </ion-label>
                   <ion-text>{{ character.species }}</ion-text>
                 </ion-item>
                 <ion-item>
-                  <ion-label>Gênero</ion-label>
+                  <ion-label>
+                    <ion-icon name="male-female" color="tertiary"></ion-icon> Gênero
+                  </ion-label>
                   <ion-text>{{ character.gender }}</ion-text>
                 </ion-item>
-                <ion-item lines="none">
-                  <ion-label>Origem</ion-label>
-                  <ion-text class="origin-name">{{ getOriginName() }}</ion-text>
+                <ion-item lines="none" class="ion-align-items-center"> <!-- Adicionei classe para alinhar itens verticalmente -->
+                  <ion-label style="width: 30%;">
+                    <ion-icon name="planet" color="medium"></ion-icon> Origem
+                  </ion-label>
+                  <ion-label class="origin-name" style="width: 70%; text-align: right;"> <!-- Ajustei largura e alinhamento -->
+                    {{ getOriginName() }}
+                  </ion-label>
                 </ion-item>
-                
               </ion-list>
             </ion-card-content>
           </ion-col>
@@ -46,7 +55,9 @@
             <ion-card-content class="character-episodes">
               <ion-item-divider color="light"></ion-item-divider>
               <ion-item>
-                <ion-label>Episódios</ion-label>
+                <ion-label>
+                  <ion-icon name="videocam" color="primary"></ion-icon> Episódios
+                </ion-label>
               </ion-item>
               <ion-list lines="none" class="episodes-list" style="max-height: 200px; overflow-y: auto;">
                 <ion-item *ngFor="let episode of episodes">
@@ -60,3 +71,4 @@
     </ion-card>
   </ng-container>
 </ion-content>
+

@@ -3,13 +3,13 @@ import { getAnalytics } from "firebase/analytics";
 
 export const environment = {
   production:true,
-  apiKey: "AIzaSyArV96xm9rLUQDwkQrjkmH9xNC4_8bVktE",
-  authDomain: "games-app-58b2a.firebaseapp.com",
-  projectId: "games-app-58b2a",
-  storageBucket: "games-app-58b2a.appspot.com",
-  messagingSenderId: "874150140716",
-  appId: "1:874150140716:web:c0266862d31deae9b56a89",
-  measurementId: "G-CDMBBDN0MH"
+  apiKey: "AIzaSyD2KUE6yOt407uUNK0gItRNYd2MXxk1PW0",
+  authDomain: "projeto-ffce4.firebaseapp.com",
+  projectId: "projeto-ffce4",
+  storageBucket: "projeto-ffce4.appspot.com",
+  messagingSenderId: "903700279851",
+  appId: "1:903700279851:web:d892dc0fbe06bdb863f06e",
+  measurementId: "G-K3V6MKGKZF"
 };
 
 const app = initializeApp(environment);

@@ -1,0 +1,8 @@
+ion-content {
+    --background: url('../../assets/aa.jpg') no-repeat center right / cover;
+    background: var(--background);
+    position: relative;
+    z-index: 10;
+    background-attachment: fixed; /* Mantém o fundo fixo ao rolar */
+  }
+

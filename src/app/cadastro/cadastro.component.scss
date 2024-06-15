@@ -1,0 +1,6 @@
+ion-content {
+    --background: url('../../assets/aa.jpg') no-repeat center center / cover;
+    background: var(--background);
+    position: relative;
+    z-index: 1; /* Garante que o conteúdo fique sobreposto ao fundo */
+  }

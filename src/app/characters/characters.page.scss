@@ -1,20 +1,23 @@
-.character-card {
-    height: 300px; /* Altura fixa para todos os cards */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  ion-img {
-    height: 200px; /* Altura da imagem dentro do card */
-    object-fit: cover; /* Redimensiona a imagem mantendo a proporção */
-  }
-  
-  ion-card-header {
-    text-align: center; /* Centraliza o título do card */
-  }
+ion-content {
+  --background: url('../../assets/21.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
 
-/* characters.page.scss */
+.character-card {
+  height: 300px; /* Altura fixa para todos os cards */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+ion-img {
+  height: 200px; /* Altura da imagem dentro do card */
+  object-fit: cover; /* Redimensiona a imagem mantendo a proporção */
+}
+
+ion-card-header {
+  text-align: center; /* Centraliza o título do card */
+}
 
 .favorite-icon {
   position: absolute;
@@ -22,6 +25,3 @@
   right: 10px;
   cursor: pointer;
 }
-
-
-  

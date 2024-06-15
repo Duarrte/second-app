@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Integrantes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed="true">
+    <ion-row>
+      <ng-container *ngFor="let integrante of integrantes; let i = index">
+        <ion-col size="6" size-md="6">
+          <ion-card class="integrante-card">
+            <ion-img [src]="integrante.image" alt="Integrante Image"></ion-img>
+            <ion-card-header>
+              <ion-card-title>{{ integrante.name }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <!-- Conteúdo adicional do card aqui, se necessário -->
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <div *ngIf="(i + 1) % 2 === 0 || i === integrantes.length - 1" style="height: 0;"></div>
+      </ng-container>
+    </ion-row>
+  </ion-grid>
+</ion-content>

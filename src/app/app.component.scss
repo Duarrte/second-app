@@ -5,4 +5,14 @@ ion-split-pane {
     width: 100%; /* Ocupa toda a largura da tela */
     height: 100%; /* Ocupa toda a altura da tela */
   }
+
+
+
+  
+  .logo-img {
+    width: 150px; /* Ajuste o tamanho conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+    max-height: 40px; /* Define uma altura máxima para a imagem */
+    margin: 0 auto; /* Centraliza horizontalmente */
+  }
   
